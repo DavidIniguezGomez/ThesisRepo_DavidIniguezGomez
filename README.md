@@ -2,15 +2,15 @@
 ## By David Íñiguez
 
 ### Abstract
-Electricity is one of the main engines of modern societies. The agents that are involved in the electricity system of a country need to have the best forecasts possible of electricity load in order to ensure that it is correctly supplied, and also to define their action strategies in the market. In this thesis we will focus in the electricity load foreasting for the daily market of the so called Mercado Ibérico de Electricidad (MIBEL), where most of the energy available is auctioned. We studied the State-of-theArt of the electricity demand approaches, specially for short-term predictions, since we are making one-day-ahead estimations. We extracted data from open sources that will be used later for designing and testing different types of models. Based on the performance of the different approaches, we selected a model that efficiently combines both time series forecasting and machine learning, obtaining a precision close to the provided by the system operator, Red Eléctrica. Finally, we analyzed the relevance of each of the variables involved by using the Shapley values and regularization techniques.
+Electricity is one of the main engines of modern societies. The agents that are involved in the electricity system of a country need to have the best forecasts possible of electricity load in order to ensure that it is correctly supplied, and also to define their action strategies in the market. In this thesis we will focus in the electricity load foreasting for the daily market of the so called Mercado Ibérico de Electricidad (MIBEL), where most of the energy available is auctioned. We studied the State-of-theArt of the electricity demand approaches, specially for short-term predictions, since we are making one-day-ahead estimations. We extracted data from open sources that will be used later for designing and testing different types of models. Based on the performance of the different approaches, we selected a model that efficiently combines both time series forecasting and machine learning, obtaining a precision close to the one provided by the system operator, Red Eléctrica. Finally, we analyzed the relevance of each of the variables involved by using the Shapley values and regularization techniques.
 
 ### Contents
 #### Jupyter notebooks
 This repo includes all the jupyter notebooks used in this thesis. 
 - **Preprocessing notebooks:**
-    - _Cities_unified.ipynb_: Used to build the _Cities_unified.csv_ file.
-    - _Economy.ipynb_: Used to build both _IPC.csv_ and _PIB.csv_ files.
-    - _OpenMeteoAPI.ipynb_: Used to build the _demanda_meteo.csv_ file.
+    - _Cities_unified.ipynb_: Used to build the _Cities_unified.csv_ file. This csv file contains the population of all provinces throughout years and their coordinates. 
+    - _Economy.ipynb_: Used to build both _IPC.csv_ and _PIB.csv_ files. The first file contains the CPI of all provinces and the total since 2014 and the second one the GDP of Spain.
+    - _OpenMeteoAPI.ipynb_: Used to build the _demanda_meteo.csv_ file given the _Cities_unified.csv_ and the demand data from ESIOS. The file _demanda_meteo.csv_ contains the climate information of each province and the demand records.  Note that sometimes this notebook raises an error when using the OpenMeteo API. In that case, just run the code until the 50 provinces of Spain have been displayed.
     - _Festivos.ipynb_: Used to build the _Festivos.csv_ file.
     - _Generate_input.ipynb_: Used to build the inputs of the experiment where exogenous variables are relevant.
 
@@ -27,3 +27,4 @@ This repo includes all the jupyter notebooks used in this thesis.
     - _Small Models - Skforecast.ipynb_: Equivalent to the _Skforecast - Exog - tuning.ipynb_ notebook, but in this case fitting 24 models (one for each hour) instead of one model for all hours.
 
 #### CSV files
+They are all included in the _inputs.zip_ folder. It includes two folders, _DatosESIOS_
